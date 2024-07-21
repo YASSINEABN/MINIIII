@@ -25,11 +25,11 @@ int	remove_old_variable(t_env_node *new_node, int *i)
 	return (0);
 }
 
-int	check_parsse(t_env_node *new, int _check_parse, int *i)
+int	check_parsse(t_env_node *new, int check_parse, int *i)
 {
-	if (_check_parse)
+	if (check_parse)
 	{
-		if (_check_parse == -1 && *i == 1)
+		if (check_parse == -1 && *i == 1)
 		{
 			g_lbv.exit_status = 512;
 			delone_env(new);
@@ -45,7 +45,7 @@ int	check_parsse(t_env_node *new, int _check_parse, int *i)
 void	add_export_variable(char **argv, int index)
 {
 	t_env_node	*new;
-	int			_check_parse;
+	int			check_parse;
 	int			check;
 
 	g_lbv.exit_status = 0;
@@ -56,8 +56,8 @@ void	add_export_variable(char **argv, int index)
 		new = get_new_node(argv[index], 0);
 		if (!new)
 			return ;
-		_check_parse = parss_export_variable(new, index);
-		check = check_parsse(new, _check_parse, &index);
+		check_parse = parss_export_variable(new, index);
+		check = check_parsse(new, check_parse, &index);
 		if (check == 2)
 			break ;
 		else if (check == 1)
@@ -79,5 +79,7 @@ void	export(t_parser_node *root)
 		g_lbv.exit_status = 0;
 	}
 	else
+	{
 		add_export_variable(root->av, 1);
+	}
 }

@@ -52,7 +52,7 @@ void	_shell_level(t_env_node **lst)
 	{
 		if (ft_strcmp(head->name, "SHLVL") == 0)
 		{
-			shlvl = ft_itoa((ft_atoi(head->content)));
+			shlvl = ft_itoa((ft_atoi(head->content) + 1));
 			if (!shlvl)
 				return (printf("minishell: memory was not allocated!\n"),
 					(void)0);

@@ -55,7 +55,6 @@ int	env_find3(t_env_node *env, char *s)
 	{
 		if (!ft_strcmp(env->content, s))
 		{
-			printf("%s \n", env->name);
 			return (1);
 		}
 		env = env->next;

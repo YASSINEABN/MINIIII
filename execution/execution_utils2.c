@@ -87,7 +87,7 @@ void	*searsh_in_path(char *path, char **argv, char **env, char **args)
 	return ((void *)1);
 }
 
-void	*launch__(t_parser_node *root, char **env)
+void	*launch(t_parser_node *root, char **env)
 {
 	t_env_node	*path_node;
 	char		**args;
@@ -119,7 +119,7 @@ void	*launch_executabl(t_parser_node *root, int size)
 		return (printf("minishell: memory was not allocated!!\n"), NULL);
 	if (check_path(root->av[0]))
 		execute_file(root->av[0], root->av, env, 1);
-	else if (!launch__(root, env))
+	else if (!launch(root, env))
 		return (free_env(env, size), NULL);
 	free_env(env, size);
 	return ((void *)1);

@@ -24,6 +24,10 @@ void	parse_unset_variable(char *argv, int *check, int *check_exit_status)
 	int	i;
 
 	i = 0;
+	if (env_find3(g_lbv.list, argv))
+	{
+		return ;
+	}
 	if (ft_isdigit(argv[0]))
 	{
 		print_unset_error(argv, check, check_exit_status);
@@ -62,10 +66,6 @@ void	unset_condition_helper(t_parser_node *root, int check_exit_status,
 	{
 		while (root->av[index])
 		{
-			if (env_find3(g_lbv.list, root->av[1]))
-			{
-				root->av[index] = get_value(root->av[1], g_lbv.list);
-			}
 			parse_unset_variable(root->av[index], &k, &check_exit_status);
 			if (k == 0 && env_find(g_lbv.list, root->av[index], -1))
 				ft_list_remove_if(&g_lbv.list, root->av[index]);

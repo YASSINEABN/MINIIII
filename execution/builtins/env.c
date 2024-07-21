@@ -12,7 +12,7 @@
 
 #include "builtins.h"
 
-void	check__(void)
+void	check(void)
 {
 	t_env_node	*head;
 
@@ -23,7 +23,6 @@ void	check__(void)
 			return ;
 		head = head->next;
 	}
-	printf("_=/Users/zmoussam/Desktop/minishell/./minishell\n");
 }
 
 void	env_cmd(t_parser_node *root)
@@ -44,7 +43,7 @@ void	env_cmd(t_parser_node *root)
 	else
 	{
 		print_list();
-		check__();
+		check();
 		g_lbv.exit_status = 0;
 	}
 }
