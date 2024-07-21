@@ -1,18 +1,7 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mel-hous <mel-hous@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/23 11:32:30 by mel-hous          #+#    #+#              #
-#    Updated: 2022/11/14 14:58:34 by mel-hous         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 CC := cc
-CFLAGS := -I$(HOME)/.brew/opt/readline/include  -Wall -Wextra -Werror -MMD 
-LDFLAGS := -L$(HOME)/.brew/opt/readline/lib  -lreadline 
+CFLAGS := -Wall -Wextra -Werror
+LDFLAGS := -lreadline 
 NAME := minishell
 SRC =	env1/create_env.c\
 		env1/env_find.c\
@@ -20,14 +9,11 @@ SRC =	env1/create_env.c\
 	    lexer/change_mode.c\
 		lexer/ft_exp.c\
 		lexer/ft_expand_var.c\
-		lexer/ft_expand_wldc.c\
 		lexer/get_next_token.c\
 		lexer/get_token.c\
 		lexer/initialisation.c\
-		lexer/is_match.c\
 		lexer/lex_search.c\
 		lexer/quote_def.c\
-		lexer/wc_ld_create.c\
 		utils/utils.c\
 		utils/cmd_list.c\
 		utils/remove_q.c\
@@ -86,21 +72,16 @@ SRC =	env1/create_env.c\
 		libft/ft_strcmp.c libft/ft_putnstr.c\
 
 OBJ := $(SRC:.c=.o)
-DEP := $(SRC:.c=.d)
-
-.PHONY: all re clean fclean bonus
 
 all: $(NAME)
-
-clean:
-	rm -rf $(OBJ) $(DEP)
-
-fclean:
-	rm -rf $(NAME) $(OBJ) $(DEP)
-
-re: fclean all
 
 $(NAME): $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
 
--include $(DEP)
+clean:
+	rm -rf $(OBJ) $(DEP)
+
+fclean:	
+	rm -rf $(NAME) $(OBJ) $(DEP)
+
+re: fclean all

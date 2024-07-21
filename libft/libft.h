@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 17:28:10 by mel-hous          #+#    #+#             */
-/*   Updated: 2022/11/14 13:56:26 by zmoussam         ###   ########.fr       */
+/*   Created: 2024/07/20 01:06:34 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 20:05:47 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-//PART 1
+
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
@@ -49,7 +49,6 @@ void	*ft_memchr(const void *str, int c, size_t n);
 int		ft_memcmp(const void *str1, const void *str2, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *src);
-//PART 2
 char	*ft_substr(char const *s, unsigned int start, int len);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
@@ -62,7 +61,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putnstr(char	*s, int len, int fd);
-//bonus part
 t_list	*ft_lstnew(void	*content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);

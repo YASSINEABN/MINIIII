@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "parser.h": "c",
+        "errno.h": "c",
+        "readline.h": "c",
+        "redirection.h": "c"
+    }
+}

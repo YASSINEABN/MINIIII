@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collect_rdr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:36:04 by mel-hous          #+#    #+#             */
-/*   Updated: 2022/11/14 01:42:23 by zmoussam         ###   ########.fr       */
+/*   Updated: 2024/07/21 20:46:57 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,19 +101,7 @@ static char	*rdr_filename(t_token file)
 {
 	char	*s;
 
-	if (file.type == WLDC)
-	{
-		if (wc_size(file.wildcard) != 1)
-		{
-			ft_putstr_fd("minishell ", 2);
-			ft_putnstr(file.pos, file.len, 2);
-			ft_putstr_fd(": ambiguous redirect", 2);
-			wc_clear(&file.wildcard);
-			return (NULL);
-		}
-		s = file.wildcard->d_name;
-	}
-	else if (file.type == VAR)
+	if (file.type == VAR)
 		s = ft_substr(file.pos, 0, ft_strlen(file.pos));
 	else
 		s = ft_substr(file.pos, 0, file.len);
@@ -123,7 +111,7 @@ static char	*rdr_filename(t_token file)
 t_rdr_node	*collect_rdr(t_lexer	*lexer, t_rdr_node	*rdr, t_token token)
 {
 	token = get_next_token(lexer);
-	if (token.type != WORD && token.type != WLDC && token.type != VAR)
+	if (token.type != WORD && token.type != VAR)
 	{
 		ft_putstr_fd("minishell :syntax error near unexpected token ", 2);
 		write(2, "'", 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_components.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-hous <mel-hous@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:40:53 by mel-hous          #+#    #+#             */
-/*   Updated: 2022/11/13 16:59:32 by mel-hous         ###   ########.fr       */
+/*   Updated: 2024/07/21 20:48:41 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ t_cmd	*cmd_ccomponents(t_lexer *lexer, t_rdr_node **rdr)
 					NULL));
 		else if (token.type == VAR)
 			cmd_addback(&cmd, ft_new_cmd(token.pos, NULL));
-		else if (token.type == WLDC)
-			cmd_addback(&cmd, ft_new_cmd(NULL, &token.wildcard));
 		else if (token.type == RD_APP || token.type == RD_IN
 			|| token.type == RD_OUT || token.type == HERDOC)
 			handle_rdr(lexer, rdr, token, tmp);

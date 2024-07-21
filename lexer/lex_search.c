@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lex_search.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-hous <mel-hous@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 13:27:05 by mel-hous          #+#    #+#             */
-/*   Updated: 2022/11/14 08:07:32 by mel-hous         ###   ########.fr       */
+/*   Updated: 2024/07/21 20:48:17 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,6 @@ t_token	expand_all(t_lexer	*lexer, int var, int len)
 {
 	t_token	token;
 
-	if (var == 2)
-	{
-		token = lex_wildcard(*lexer, len);
-		if (token.wildcard != NULL)
-		{
-			token.len = len;
-			return (token);
-		}
-	}
 	if (var == 1)
 	{
 		token = lex_var(*lexer, len);

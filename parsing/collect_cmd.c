@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collect_cmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-hous <mel-hous@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 14:45:13 by mel-hous          #+#    #+#             */
-/*   Updated: 2022/11/12 12:42:33 by mel-hous         ###   ########.fr       */
+/*   Updated: 2024/07/21 20:48:44 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ t_parser_node	*collect_cmd(t_lexer *lexer)
 	{
 		if (token.type == VAR)
 			free(token.pos);
-		if (token.type == WLDC)
-			wc_clear(&token.wildcard);
 		elem = cmd_ccomponents(lexer, &rdrlst);
 	}
 	if ((elem || rdrlst) && rdrlst != MISSMATCH)

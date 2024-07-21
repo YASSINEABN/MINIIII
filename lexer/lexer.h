@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-hous <mel-hous@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:22:46 by mel-hous          #+#    #+#             */
-/*   Updated: 2022/11/14 14:34:18 by mel-hous         ###   ########.fr       */
+/*   Updated: 2024/07/21 20:48:23 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef enum token_type
 	ENDF,
 	CMD,
 	VAR,
-	WLDC,
 	RD_IN,
 	RD_OUT,
 	HERDOC,
@@ -43,7 +42,6 @@ typedef struct token
 {
 	int				len;
 	char			*pos;
-	t_wc_node		*wildcard;
 	t_token_type	type;
 }			t_token;
 
@@ -74,11 +72,8 @@ t_token		word_collect(t_lexer	*lexer, int var, int len);
 t_token		get_token(t_lexer *lexer);
 t_token		get_next_token(t_lexer	*lexer);
 t_token		check_next_token(t_lexer	lexer, int i);
-t_token		lex_wildcard(t_lexer lexer, int i);
 t_token		t_wc_init(t_token_type	type, int len, t_wc_node *p, char *pos);
-t_wc_node	*wc_ld_create(char *s);
 t_token		lex_var(t_lexer lexer, int len);
-int			is_match(char *p, char *dir_n, int mode, char	*str);
 int			change_mode2(int i, char c);
 char		*exp_var(char **sp);
 char		*exit_status(char **s);
