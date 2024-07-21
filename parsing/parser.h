@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/21 21:07:32 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:07:34 by ibenaiss         ###   ########.fr       */
+/*   Created: 2024/07/21 21:25:34 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 21:41:26 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include "../libft/libft.h"
 # include <readline/readline.h>
 # include "../utils/utils.h"
-
-# define MISSMATCH (void *)-1
 
 typedef struct s_rdr_node
 {

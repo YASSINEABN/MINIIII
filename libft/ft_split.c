@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 static char	**ft_clear_split(char **tab)
 {
@@ -35,8 +35,8 @@ static int	nb_words(const char *str, char c)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if ((str[i + 1] == c || str[i + 1] == '\0') == 1
-			&& (str[i] == c || str[i] == '\0') == 0)
+		if ((str[i + 1] == c || str[i + 1] == '\0') == 1 && (str[i] == c
+				|| str[i] == '\0') == 0)
 			words++;
 		i++;
 	}
@@ -58,9 +58,9 @@ static void	write_word(char *dest, const char *s, char c)
 
 static char	**cpy_split(char **dest, const char *str, char c)
 {
-	int		i;
-	int		j;
-	int		word;
+	int	i;
+	int	j;
+	int	word;
 
 	word = 0;
 	i = 0;

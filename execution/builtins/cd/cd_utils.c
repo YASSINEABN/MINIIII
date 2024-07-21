@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cd_utils.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/21 22:26:14 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 22:26:17 by ibenaiss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../builtins.h"
 
@@ -34,8 +44,8 @@ void	go_to_oldpath(char **oldpwd, char **pwd)
 		if (chdir(*oldpwd) == -1)
 		{
 			g_lbv.exit_status = 256;
-			return (printf("minishell: cd: %s:%s\n", tmp_cwd, \
-				strerror(errno)), free(tmp_cwd));
+			return (printf("minishell: cd: %s:%s\n", tmp_cwd, strerror(errno)),
+				free(tmp_cwd));
 		}
 		else
 			set_oldpwd(oldpwd, tmp_cwd, 1);
@@ -46,7 +56,7 @@ void	go_to_oldpath(char **oldpwd, char **pwd)
 
 void	go_to_home(char **oldpwd, char **pwd, t_env_node *tmp_home, char *old_d)
 {
-	char		*home;
+	char	*home;
 
 	home = NULL;
 	if (tmp_home)
@@ -56,8 +66,8 @@ void	go_to_home(char **oldpwd, char **pwd, t_env_node *tmp_home, char *old_d)
 		if (chdir(home) == -1)
 		{
 			g_lbv.exit_status = 256;
-			return (printf("minishell: cd: %s:%s\n", home, \
-				strerror(errno)), free(old_d));
+			return (printf("minishell: cd: %s:%s\n", home, strerror(errno)),
+				free(old_d));
 		}
 		else if (oldpwd == NULL)
 			add_back(&g_lbv.list, new_node(old_d, ft_strdup("OLDPWD"), 6));

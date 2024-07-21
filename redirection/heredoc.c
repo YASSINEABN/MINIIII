@@ -57,10 +57,10 @@ void	*herdoc_(t_parser_node *n, t_rdr_node *lst, t_out_in_file *file, int v)
 	head = lst;
 	while (head)
 	{
-		if ((head->type == RD_OUT || head->type == RD_APP) \
+		if ((head->type == RD_OUT || head->type == RD_APP)
 			&& (file->input_file != -1 && file->output_file != -1))
 			rdr_output(n, head, file, 0);
-		if (head->type == RD_IN && file->input_file != -1 \
+		if (head->type == RD_IN && file->input_file != -1
 			&& file->output_file != -1)
 			rdr_input(n, head, file, 0);
 		head = head->next;

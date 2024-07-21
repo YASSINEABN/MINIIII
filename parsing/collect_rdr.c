@@ -6,14 +6,14 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:06:57 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:06:59 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:38:38 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
+#include <errno.h>
 #include <fcntl.h>
 #include <string.h>
-#include <errno.h>
 
 static int	get_heredoc_l(char *f, int fd, char *line, bool expand)
 {
@@ -108,7 +108,7 @@ static char	*rdr_filename(t_token file)
 	return (s);
 }
 
-t_rdr_node	*collect_rdr(t_lexer	*lexer, t_rdr_node	*rdr, t_token token)
+t_rdr_node	*collect_rdr(t_lexer *lexer, t_rdr_node *rdr, t_token token)
 {
 	token = get_next_token(lexer);
 	if (token.type != WORD && token.type != VAR)
@@ -117,7 +117,7 @@ t_rdr_node	*collect_rdr(t_lexer	*lexer, t_rdr_node	*rdr, t_token token)
 		write(2, "'", 1);
 		ft_putnstr(token.pos, token.len, 2);
 		write(2, "'\n", 2);
-		return (MISSMATCH);
+		return ((void *)-1);
 	}
 	rdr = malloc(sizeof(t_rdr_node));
 	if (!rdr)

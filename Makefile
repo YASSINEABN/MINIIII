@@ -9,6 +9,7 @@ NAME := minishell
 
 SRC =	env1/create_env.c\
 		env1/env_find.c\
+		env1/env_list_size.c\
 		env1/env_ld.c\
 	    lexer/change_mode.c\
 		lexer/ft_exp.c\

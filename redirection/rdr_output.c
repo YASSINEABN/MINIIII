@@ -6,7 +6,7 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:08:08 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:08:10 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:45:36 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ void	execute_rdr_output_cmd(t_parser_node *node, t_out_in_file *file)
 
 int	get_output_file(t_parser_node *node, t_rdr_node *head, t_out_in_file *file)
 {
-	if (head->type == RD_OUT && file->input_file != -1 \
+	if (head->type == RD_OUT && file->input_file != -1
 		&& file->output_file != -1)
 	{
 		if (file->output_file != 1)
 			close(file->output_file);
 		file->output_file = open(head->file, O_CREAT | O_RDWR | O_TRUNC, 0777);
 	}
-	else if (head->type == RD_APP && file->input_file != -1 \
+	else if (head->type == RD_APP && file->input_file != -1
 		&& file->output_file != -1)
 	{
 		if (file->output_file != 1)
 			close(file->output_file);
 		file->output_file = open(head->file, O_CREAT | O_RDWR | O_APPEND, 0777);
 	}
-	else if (head->type == RD_IN && file->output_file != -1 \
+	else if (head->type == RD_IN && file->output_file != -1
 		&& file->input_file != -1)
 		rdr_input(node, head, file, 0);
 	if (file->output_file == -1 || file->input_file == -1)

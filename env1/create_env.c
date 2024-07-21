@@ -6,12 +6,12 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:11:31 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:11:33 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 22:41:17 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "env.h"
 #include "../lexer/lexer.h"
+#include "env.h"
 
 void	*manu(t_env_node *var, char *s)
 {
@@ -30,8 +30,8 @@ void	*manu(t_env_node *var, char *s)
 				return (printf("minishell:memory was not allocated!!\n"), NULL);
 			name = ft_substr(s, 0, j);
 			if (!name)
-				return (printf("minishell:memory was not allocated!!\n"), \
-				free(content), NULL);
+				return (printf("minishell:memory was not allocated!!\n"),
+					free(content), NULL);
 			new = new_node(content, name, j);
 			if (!new)
 				return (free(name), free(content), NULL);
@@ -52,12 +52,12 @@ void	_shell_level(t_env_node **lst)
 	{
 		if (ft_strcmp(head->name, "SHLVL") == 0)
 		{
-			shlvl = ft_itoa((ft_atoi(head->content) + 1));
+			shlvl = ft_itoa((ft_atoi(head->content)));
 			if (!shlvl)
-				return (printf("minishell: memory was not allocated!\n"), \
-				(void)0);
+				return (printf("minishell: memory was not allocated!\n"),
+					(void)0);
 			free(head->content);
-				head->content = shlvl;
+			head->content = shlvl;
 			return ;
 		}
 		head = head->next;

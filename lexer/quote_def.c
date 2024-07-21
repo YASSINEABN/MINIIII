@@ -12,7 +12,7 @@
 
 #include "../lexer/lexer.h"
 
-char	*quote_def(char	*str)
+char	*quote_def(char *str)
 {
 	char	*s;
 	int		mode;

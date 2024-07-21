@@ -6,7 +6,7 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:07:46 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:07:48 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:41:21 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	rdr_clear(t_rdr_node **lst)
 	tmp = NULL;
 	if (!lst)
 		return ;
-	while (*lst && *lst != MISSMATCH)
+	while (*lst && *lst != (void *)-1)
 	{
 		tmp = *lst;
 		*lst = (*lst)->next;
 		if (tmp->type == HERDOC)
-			unlink (tmp->file);
+			unlink(tmp->file);
 		free((tmp->file));
 		free(tmp);
 	}
@@ -40,9 +40,9 @@ void	rdr_addback(t_rdr_node **lst, t_rdr_node *_new)
 		*lst = _new;
 		return ;
 	}
-	while (p != MISSMATCH && p->next)
+	while (p != (void *)-1 && p->next)
 		p = p->next;
-	if (p != MISSMATCH)
+	if (p != (void *)-1)
 	{
 		p->next = _new;
 		_new->next = NULL;

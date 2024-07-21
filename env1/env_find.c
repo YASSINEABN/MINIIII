@@ -6,14 +6,14 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:11:35 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:11:37 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 22:01:46 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "env.h"
 #include "../lexer/lexer.h"
+#include "env.h"
 
-t_env_node	*env_find(t_env_node *env, char	*s, int len)
+t_env_node	*env_find(t_env_node *env, char *s, int len)
 {
 	t_env_node	*node;
 
@@ -55,12 +55,12 @@ int	env_find3(t_env_node *env, char *s)
 	{
 		if (!ft_strcmp(env->content, s))
 		{
-			printf("%s \n",env->name);
-			 return 1;
+			printf("%s \n", env->name);
+			return (1);
 		}
 		env = env->next;
 	}
-	return 0;
+	return (0);
 }
 
 void	print_list(void)
@@ -93,17 +93,4 @@ void	ft_list_remove_if(t_env_node **begin_list, void *data_ref)
 	}
 	else
 		ft_list_remove_if(&cur->next, data_ref);
-}
-
-int	env_listsize(t_env_node *env)
-{
-	int	i;
-
-	i = 0;
-	while (env)
-	{
-		i++;
-		env = env->next;
-	}
-	return (i);
 }

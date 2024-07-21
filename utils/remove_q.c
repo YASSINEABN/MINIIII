@@ -12,7 +12,7 @@
 
 #include "../lexer/lexer.h"
 
-char	*remove_q(char	*str)
+char	*remove_q(char *str)
 {
 	char	*s;
 	int		n;

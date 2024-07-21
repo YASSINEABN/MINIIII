@@ -13,7 +13,7 @@
 #include "../parsing/parser.h"
 #include <stdlib.h>
 
-t_token	get_token(t_lexer	*lexer)
+t_token	get_token(t_lexer *lexer)
 {
 	t_token	token;
 

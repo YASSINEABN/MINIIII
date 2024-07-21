@@ -49,7 +49,7 @@ t_parser_node	*node_create(t_cmd **av, t_rdr_node *rdrlist, t_token_type tp)
 }
 
 void	node_ptr(t_parser_node **node, t_parser_node *left,
-				t_parser_node *right)
+		t_parser_node *right)
 {
 	(*node)->right = right;
 	(*node)->left = left;

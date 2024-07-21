@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/21 22:26:32 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 22:26:35 by ibenaiss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../builtins.h"
 
@@ -101,6 +111,5 @@ t_env_node	*get_new_node(char *variable_with_content, int index)
 	}
 	if (!content)
 		return (NULL);
-	return (new_node(content, \
-	ft_substr(variable_with_content, 0, len2), len2));
+	return (new_node(content, ft_substr(variable_with_content, 0, len2), len2));
 }

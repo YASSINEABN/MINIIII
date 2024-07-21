@@ -29,7 +29,7 @@ static int	ft_len(long int n)
 
 static char	*str_cpy(char *str, long int n, int len)
 {
-	int		beg;
+	int	beg;
 
 	str[len] = '\0';
 	len = len - 1;
@@ -52,9 +52,9 @@ static char	*str_cpy(char *str, long int n, int len)
 
 char	*ft_itoa(int n)
 {
-	char			*str;
-	int				len;
-	long int		lln;
+	char		*str;
+	int			len;
+	long int	lln;
 
 	lln = n;
 	len = ft_len(lln);

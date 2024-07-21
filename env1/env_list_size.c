@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   env_list_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 01:04:29 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/20 01:04:31 by ibenaiss         ###   ########.fr       */
+/*   Created: 2024/07/21 22:02:05 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 22:03:07 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "env.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	env_listsize(t_env_node *env)
 {
-	if (n == -2147483648)
+	int	i;
+
+	i = 0;
+	while (env)
 	{
-		write(fd, "-2147483648", 11);
+		i++;
+		env = env->next;
 	}
-	else if (n >= 0 && n <= 9)
-	{
-		ft_putchar_fd(n + '0', fd);
-	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(n * -1, fd);
-	}
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
+	return (i);
 }

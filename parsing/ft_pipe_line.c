@@ -6,7 +6,7 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:07:02 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:07:03 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:37:42 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ t_parser_node	*ft_pipe_line(t_lexer *lexer)
 {
 	t_parser_node	*cmd;
 	t_parser_node	*pipe;
+	void			*ptr;
 
+	ptr = (void *)-1;
 	cmd = collect_cmd(lexer);
-	if (cmd && cmd != MISSMATCH)
+	if (cmd && cmd != ptr)
 	{
 		pipe = check_pipe(lexer);
-		if (pipe == MISSMATCH)
+		if (pipe == ptr)
 			return (cmd);
 		if (pipe)
 			pipe->left = cmd;

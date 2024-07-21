@@ -12,7 +12,7 @@
 
 #include "parser.h"
 
-char	**iter_lst(t_cmd **lst, t_wc_node	*tmp, t_cmd *cmd, char **av)
+char	**iter_lst(t_cmd **lst, t_wc_node *tmp, t_cmd *cmd, char **av)
 {
 	int	i;
 
@@ -42,12 +42,10 @@ char	**iter_lst(t_cmd **lst, t_wc_node	*tmp, t_cmd *cmd, char **av)
 char	**av_creat(t_cmd **lst)
 {
 	char		**av;
-	
 	int			size;
 	t_cmd		*cmd;
 	t_wc_node	*tmp;
 
-	
 	cmd = NULL;
 	tmp = NULL;
 	size = cmd_size(*lst);

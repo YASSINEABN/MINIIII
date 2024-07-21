@@ -46,8 +46,8 @@ t_env_node	*new_node(char *content, char *name, int len)
 	if (!name)
 		return (printf("minishell:memory was not allocated!\n"), free(s), NULL);
 	if (!content)
-		return (printf("minishell:memory was not allocated!\n"), \
-		free(s), free(name), NULL);
+		return (printf("minishell:memory was not allocated!\n"), free(s),
+			free(name), NULL);
 	s->content = content;
 	s->name = name;
 	s->len = len;

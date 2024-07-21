@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -23,5 +23,5 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-/* The bzero() function writes n zeroed bytes to the string s. 
+/* The bzero() function writes n zeroed bytes to the string s.
  If n is zero, bzero() does nothing.*/

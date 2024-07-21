@@ -24,7 +24,7 @@ t_lexer	*lex_init(char *s)
 	return (lexer);
 }
 
-t_token	t_init(t_token_type	_tp, int len, char *p)
+t_token	t_init(t_token_type _tp, int len, char *p)
 {
 	t_token	tok;
 
@@ -34,7 +34,7 @@ t_token	t_init(t_token_type	_tp, int len, char *p)
 	return (tok);
 }
 
-t_token	t_wc_init(t_token_type	type, int len, t_wc_node *p, char *pos)
+t_token	t_wc_init(t_token_type type, int len, t_wc_node *p, char *pos)
 {
 	t_token	tok;
 

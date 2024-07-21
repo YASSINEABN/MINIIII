@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execution_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/21 22:27:14 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 22:27:19 by ibenaiss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "execution.h"
 
@@ -40,11 +50,11 @@ char	**copy_env(int size, int index)
 	{
 		temp = ft_strjoin(head->name, "=");
 		if (!temp)
-			return (printf("minishell: memory was not allocated!!\n"), \
+			return (printf("minishell: memory was not allocated!!\n"),
 				free_env(env, index), NULL);
 		env[index] = ft_strjoin(temp, head->content);
 		if (!env[index])
-			return (printf("minishell: memory was not allocated!!\n"), \
+			return (printf("minishell: memory was not allocated!!\n"),
 				free_env(env, index), free(temp), NULL);
 		free(temp);
 		head = head->next;

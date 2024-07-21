@@ -6,13 +6,11 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:10:50 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:10:52 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:48:07 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lexer.h"
-
-#define NO_EXPANSION	((char *)-1)
 
 char	*exit_status(char **s)
 {
@@ -21,7 +19,7 @@ char	*exit_status(char **s)
 		*s += 2;
 		return (ft_itoa(g_lbv.exit_status / 256));
 	}
-	return (NO_EXPANSION);
+	return ((char *)-1);
 }
 
 char	*str_add(char *full, char c, char *s)
@@ -30,7 +28,7 @@ char	*str_add(char *full, char c, char *s)
 	char	*str;
 
 	dest = NULL;
-	if (s == NO_EXPANSION)
+	if (s == (char *)-1)
 		return (full);
 	if (!s)
 	{
@@ -42,13 +40,13 @@ char	*str_add(char *full, char c, char *s)
 		str[0] = c;
 		str[1] = '\0';
 		dest = ft_strjoin(full, str);
-		free (full);
-		free (str);
+		free(full);
+		free(str);
 		return (dest);
 	}
 	dest = ft_strjoin(full, s);
-	free (full);
-	free (s);
+	free(full);
+	free(s);
 	return (dest);
 }
 
@@ -60,7 +58,7 @@ char	*exp_var(char **sp)
 
 	s = *sp;
 	if (s[0] != '$' || (!ft_isalpha(s[1]) && s[1] != '_'))
-		return (NO_EXPANSION);
+		return ((char *)-1);
 	s++;
 	i = 1;
 	while (ft_isalnum(s[i]) || s[i] == '_')
@@ -85,13 +83,13 @@ char	*lex_var2(char **str, char *full, char *s, char *expnd)
 		while (full && *s)
 		{
 			mode = change_mode2(mode, *s);
-			expnd = NO_EXPANSION;
+			expnd = (char *)-1;
 			if (mode != 1)
 			{
 				if (*s == '$')
 					expnd = ft_exp(expnd, &s);
 			}
-			if (expnd == NO_EXPANSION)
+			if (expnd == (char *)-1)
 				full = str_add(full, *s++, NULL);
 			else
 				full = str_add(full, 0, expnd);
@@ -114,8 +112,7 @@ t_token	lex_var(t_lexer lexer, int len)
 	full = ft_strdup("");
 	s = ft_substr(lexer.str, 0, len);
 	str = ft_split(s, DEF_DOUBEL_Q);
-	
-	free (s);
+	free(s);
 	full = lex_var2(str, full, s, expnd);
 	ft_clear_av(str);
 	if (full)

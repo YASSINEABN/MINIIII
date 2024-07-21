@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"utils.h"
+#include "utils.h"
 #include <stdlib.h>
 
 void	ft_clear_av(char **str)
@@ -19,6 +19,6 @@ void	ft_clear_av(char **str)
 
 	i = 0;
 	while (str[i])
-		free (str[i++]);
-	free (str);
+		free(str[i++]);
+	free(str);
 }

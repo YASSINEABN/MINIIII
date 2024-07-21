@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execution_utils2.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/21 22:27:24 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 22:27:28 by ibenaiss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "execution.h"
 
@@ -37,11 +47,11 @@ char	*search_(char **split_content, char **argv, char **args, int index)
 
 	tmp_path = ft_strjoin("/", argv[0]);
 	if (!tmp_path)
-		return (printf("minishell: memory was not allocated!!\n"), \
+		return (printf("minishell: memory was not allocated!!\n"),
 			free_path_content(split_content), NULL);
 	tmp2_path = ft_strjoin(split_content[index], tmp_path);
 	if (!tmp2_path)
-		return (printf("minishell: memory was not allocated!!\n"), \
+		return (printf("minishell: memory was not allocated!!\n"),
 			free_path_content(split_content), free(tmp_path), NULL);
 	free(tmp_path);
 	copy_argv_for_execve(argv, args, tmp2_path);

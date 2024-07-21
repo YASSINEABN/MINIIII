@@ -6,22 +6,25 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:06:40 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:06:42 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:42:17 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
 void	handle_rdr(t_lexer *lexer, t_rdr_node **rdr, t_token token,
-					t_rdr_node *tmp)
+		t_rdr_node *tmp)
 {
+	void			*ptr;
+
+	ptr = (void *)-1;
 	tmp = collect_rdr(lexer, *rdr, token);
-	if (tmp == MISSMATCH)
+	if (tmp == ptr)
 	{
 		if (rdr)
 			rdr_clear(rdr);
 		else
-			*rdr = MISSMATCH;
+			*rdr = ptr;
 	}
 	rdr_addback(rdr, tmp);
 }
@@ -31,13 +34,14 @@ t_cmd	*cmd_ccomponents(t_lexer *lexer, t_rdr_node **rdr)
 	t_token		token;
 	t_cmd		*cmd;
 	t_rdr_node	*tmp;
+	void		*ptr;
 
+	ptr = (void *)-1;
 	cmd = NULL;
 	tmp = NULL;
 	token = t_init(CHAR_NULL, 0, NULL);
-	while (token.type != END && token.type != ERROR
-		&& token.type != PIPE && token.type != TOK
-		&& token.type != ENDF && *rdr != MISSMATCH)
+	while (token.type != END && token.type != ERROR && token.type != PIPE
+		&& token.type != TOK && token.type != ENDF && *rdr != ptr)
 	{
 		token = get_next_token(lexer);
 		if (token.type == WORD)

@@ -1,11 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execution.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/21 22:27:29 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 22:27:34 by ibenaiss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-
+#include "../redirection/redirection.h"
 #include "./builtins/builtins.h"
 #include "execution.h"
-#include<string.h>
 #include <fcntl.h>
+#include <string.h>
 #include <sys/errno.h>
-#include "../redirection/redirection.h"
 
 void	execution_cmd(t_parser_node *root)
 {

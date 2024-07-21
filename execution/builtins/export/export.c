@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/21 22:26:36 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 22:38:26 by ibenaiss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../builtins.h"
 
@@ -62,8 +72,8 @@ void	add_export_variable(char **argv, int index)
 
 void	export(t_parser_node *root)
 {
-	if (root->ac == 1 || (root->ac == 2 \
-		&& (root->av[1][0] == '#' || root->av[1][0] == ';')))
+	if (root->ac == 1 || (root->ac == 2 && (root->av[1][0] == '#'
+			|| root->av[1][0] == ';')))
 	{
 		print_sort_list();
 		g_lbv.exit_status = 0;

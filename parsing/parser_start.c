@@ -6,7 +6,7 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:07:26 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:07:28 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:41:05 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_parser_node	*parse(char *input)
 
 	lexer = lex_init(quote_def(input));
 	ast = parse_input(lexer);
-	if (!ast || ast == MISSMATCH)
+	if (!ast || ast == (void *)-1)
 	{
 		g_lbv.exit_status = 258 * 256;
 		free(lexer);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strrchr(const char *str, int c)
 {
@@ -31,7 +31,7 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	if (str[i] == '\0' && c == '\0')
 	{
-		dest = (char *) &str[i];
+		dest = (char *)&str[i];
 		return (dest);
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:06:33 by ibenaiss          #+#    #+#             */
-/*   Updated: 2024/07/21 21:06:35 by ibenaiss         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:35:54 by ibenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@ t_parser_node	*check_pipe(t_lexer *lexer)
 {
 	t_parser_node	*pipe_line;
 	t_parser_node	*pipe;
+	void			*ptr;
 
+	ptr = (void *)-1;
 	if (lexer->curent_type.type == PIPE)
 	{
 		pipe_line = ft_pipe_line(lexer);
-		if (!pipe_line || pipe_line == MISSMATCH)
+		if (!pipe_line || pipe_line == ptr)
 		{
-			ft_putstr_fd("minishell: syntax error: unexpected end of file\n", 2);
+			ft_putstr_fd("minishell: syntax error: unexpected end of file\n",
+				2);
 			return (NULL);
 		}
 		else
@@ -35,5 +38,5 @@ t_parser_node	*check_pipe(t_lexer *lexer)
 		return (pipe_line);
 	}
 	else
-		return (MISSMATCH);
+		return (ptr);
 }

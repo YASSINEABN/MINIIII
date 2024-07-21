@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include "../parsing/parser.h"
 #include "../execution/execution.h"
+#include "../parsing/parser.h"
+#include "utils.h"
 
 int	readline_hook(void)
 {
@@ -28,7 +28,7 @@ void	handler(int signum)
 	}
 	if (signum == SIGINT)
 	{
-	printf("^C");
+		printf("^C");
 		g_lbv.exit_status = 131 * 255;
 		g_lbv.check_signal = 1;
 		rl_done = 1;
@@ -40,8 +40,8 @@ void	intialize_signal(void)
 	g_lbv.check_sigquit = 0;
 	rl_catch_signals = 0;
 	rl_event_hook = readline_hook;
-	if (signal(SIGINT, &handler) == SIG_ERR \
-		|| signal(SIGQUIT, &handler) == SIG_ERR)
+	if (signal(SIGINT, &handler) == SIG_ERR || signal(SIGQUIT,
+			&handler) == SIG_ERR)
 		printf("minishell: %s\n", strerror(errno));
 }
 

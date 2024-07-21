@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "redirection.h"
 #include "../execution/execution.h"
+#include "redirection.h"
 #include <fcntl.h>
 
 void	redirection(t_parser_node *node)

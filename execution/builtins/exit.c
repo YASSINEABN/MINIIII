@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenaiss <ibenaiss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/21 22:26:58 by ibenaiss          #+#    #+#             */
+/*   Updated: 2024/07/21 22:27:02 by ibenaiss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "builtins.h"
 
@@ -48,8 +58,8 @@ void	exit_cmd(t_parser_node *root)
 	printf("exit\n");
 	if (root->ac == 1)
 		return (node_del(&root), exit(1));
-	else if ((root->ac > 1 && !check_if_all_digit(root->av[1])) \
-	|| (check_if_all_digit(root->av[1]) && ft_strlen(root->av[1]) > 19))
+	else if ((root->ac > 1 && !check_if_all_digit(root->av[1]))
+		|| (check_if_all_digit(root->av[1]) && ft_strlen(root->av[1]) > 19))
 	{
 		printf("minishell: exit: %s: numeric argument require\n", root->av[1]);
 		node_del(&root);

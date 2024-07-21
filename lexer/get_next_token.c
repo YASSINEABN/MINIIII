@@ -12,7 +12,7 @@
 
 #include "lexer.h"
 
-t_token	get_next_token(t_lexer	*lexer)
+t_token	get_next_token(t_lexer *lexer)
 {
 	t_token	token;
 	int		i;
