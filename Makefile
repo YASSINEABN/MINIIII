@@ -1,8 +1,12 @@
 
 CC := cc
+
 CFLAGS := -Wall -Wextra -Werror
+
 LDFLAGS := -lreadline 
+
 NAME := minishell
+
 SRC =	env1/create_env.c\
 		env1/env_find.c\
 		env1/env_ld.c\
